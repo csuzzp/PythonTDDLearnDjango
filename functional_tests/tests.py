@@ -15,6 +15,11 @@ class NewVisitorTest(LiveServerTestCase):
 	def tearDown(self):
 		self.browser.quit()
 
+	def check_for_row_in_list_table(self,row_text):
+		table = self.browser.find_element_by_id('id_list_table')
+		rows = table.find_elements_by_tag_name('tr')
+		self.assertIn(row_text,[row.text for row in rows])
+
 	def test_can_start_a_list_and_retrieve_it_later(self):
 		self.browser.get(self.live_server_url)
 
@@ -32,18 +37,13 @@ class NewVisitorTest(LiveServerTestCase):
 		inputbox.send_keys('Buy peacock feathers')
 
 		inputbox.send_keys(Keys.ENTER)
-
+		#edith_list_url = self.browser.current_url
+		#self.assertRegex(edith_list_url,'/lists/.+')
+		
 		time.sleep(1)
-		table = self.browser.find_element_by_id('id_list_table')
+		self.check_for_row_in_list_table('1:Buy peacock feathers')
 
-		rows = table.find_elements_by_tag_name('tr')
-
-		self.assertTrue(
-			any(row.text == '1:Buy peacock feathers' for row in rows),
-			"New to-do item did not appear in table -- its text was:\n%s"%(
-				table.text,
-				)
-			)
+		
 		
 		self.fail('Finish the test!')
 
