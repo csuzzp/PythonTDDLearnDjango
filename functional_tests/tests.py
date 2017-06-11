@@ -39,8 +39,8 @@ class NewVisitorTest(LiveServerTestCase):
 		inputbox.send_keys(Keys.ENTER)
 		time.sleep(1)
 
-		#edith_list_url = self.browser.current_url
-		#self.assertRegex(edith_list_url,'/lists/.+')
+		edith_list_url = self.browser.current_url
+		self.assertRegex(edith_list_url,'/lists/.+')
 		
 		self.check_for_row_in_list_table('1:Buy peacock feathers')
 
