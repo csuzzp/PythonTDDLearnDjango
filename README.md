@@ -6,11 +6,11 @@ First install Python3.6
 
 Then Install django: 
 
-$ pip install django
+```$ pip install django```
 
 Install Selenium:
 
-$ pip install selenium
+```$ pip install selenium```
 
 Downlode GeckoDriver.exe from :http://www.seleniumhq.org/download/  [use firefox, u can use other depends on u explore]
 
@@ -21,13 +21,13 @@ function_tests.py
 
 ----Run it 
 
-$ python function_tests.py
+```$ python function_tests.py````
 
 will open firefox explore, told fail message.
 
 Build django project
 
-$ django-admin.py startproject superlists
+```$ django-admin.py startproject superlists```
 
 It will create a directory named spuerlists and some subdirectory
 
